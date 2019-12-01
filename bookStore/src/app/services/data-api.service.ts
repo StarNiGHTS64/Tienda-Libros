@@ -43,7 +43,18 @@ export class DataApiService {
     }));
   }
 
-  addBooks(){}
-  updateBooks(){}
-  deleteBooks(){}
+  addBooks(book: BookInterface): void{
+    this.booksCollection.add(book);
+  }
+
+  updateBooks(book: BookInterface): void{
+    let idBook = book.id;
+    this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
+    this.bookDoc.update(book);
+  }
+
+  deleteBooks(idBook: string): void{
+    this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
+    this.bookDoc.delete();
+  }
 }
