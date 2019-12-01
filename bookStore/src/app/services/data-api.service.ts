@@ -10,8 +10,7 @@ import { map } from 'rxjs/operators';
 export class DataApiService {
 
   constructor(private afs:AngularFirestore) { 
-    this.booksCollection = afs.collection<BookInterface>('books');
-    this.books = this.booksCollection.valueChanges();
+
   }
   private booksCollection: AngularFirestoreCollection<BookInterface>;
   private books: Observable<BookInterface[]>;
@@ -23,6 +22,7 @@ export class DataApiService {
   };
 
   getAllBooks(){
+    this.booksCollection = this.afs.collection<BookInterface>('books');
     return this.books = this.booksCollection.snapshotChanges()
     .pipe(map(changes => {
       return changes.map( action => {
