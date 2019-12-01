@@ -1,4 +1,4 @@
-<section id="books">
+<section id="books" class="mt-5">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let book of books">
@@ -14,13 +14,13 @@
               </p>
               <div class="container-precio-idioma">
                 <p class="badge badge-info">
-                  {{book.precio}}€
+                  {{book.precio}}$
                 </p>
                 <p class="badge badge-info">
                   {{book.idioma}}
                 </p>
               </div>
-              <a href="{{book.link_amazon}}" class="btn btn-block btn-primary" target="_blank">Buy</a>
+              <a href="{{book.link_page}}" class="btn btn-block btn-primary" target="_blank">Buy</a>
             </div>
           </div>
         </div>
