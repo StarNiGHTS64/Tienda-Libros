@@ -18,7 +18,9 @@ export class DataApiService {
   private bookDoc: AngularFirestoreDocument<BookInterface>;
   private book: Observable<BookInterface>;
 
-  public selectedBook: BookInterface = {};
+  public selectedBook: BookInterface = {
+    id: null
+  };
 
   getAllBooks(){
     return this.books = this.booksCollection.snapshotChanges()
@@ -58,4 +60,6 @@ export class DataApiService {
     this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
     this.bookDoc.delete();
   }
+
+
 }
