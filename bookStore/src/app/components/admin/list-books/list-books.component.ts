@@ -27,8 +27,12 @@ export class ListBooksComponent implements OnInit {
       });
   }
 
-  onDeleteBook(){
-    console.log('DELETE BOOK');
+  onDeleteBook(idBook: string): void{
+    const confirmacion = confirm('Are you sure?');
+    if(confirmacion){
+      this.dataApi.deleteBook(idBook);
+    }
+    
   }
 
 }
